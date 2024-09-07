@@ -1,6 +1,7 @@
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 import pandas as pd
+import joblib
 
 
 df = pd.read_csv('../data/preprocessed_data.csv')
@@ -16,4 +17,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 model = DecisionTreeClassifier()
 model.fit(X_train, y_train)
 
-print("Model training completed by Vithya.")
+
+joblib.dump(model, '../models/vithya_model.pkl')
+
+print("Model training completed by Vithya and the model has been saved.")
